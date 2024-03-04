@@ -38,8 +38,8 @@ const { xs } = useDisplay()
 <template>
   <div>
     <app-bar>
-      NEXIS
       <v-spacer />
+      <connect-button />
     </app-bar>
     <v-container>
       <v-row>
@@ -49,6 +49,8 @@ const { xs } = useDisplay()
               <v-icon icon="mdi-square-medium" />
               Your NZT
             </v-card-title>
+
+            <v-img src="/ring.png" height="396" />
 
             <v-card-text>
               <v-row>
@@ -124,14 +126,14 @@ const { xs } = useDisplay()
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
-          <v-card rounded="0" class="mb-6">
+          <v-card rounded="0" class="mb-6" height="140">
             <v-card-title class="text-uppercase">
               <v-icon icon="mdi-square-medium" />
               Info
             </v-card-title>
 
             <v-card-text>
-              {{ activeRoadmapItem.subtitle }}
+              {{ activeRoadmapItem?.subtitle }}
             </v-card-text>
           </v-card>
 
@@ -140,6 +142,8 @@ const { xs } = useDisplay()
               <v-icon icon="mdi-square-medium" />
               Your portal pass nft
             </v-card-title>
+
+            <v-img src="/nft_pass.png" height="200" class="my-16" />
 
             <v-card-text>
               Your on-chain NZT account.
@@ -154,7 +158,7 @@ const { xs } = useDisplay()
                 size="large"
                 rounded="0"
                 block
-                color="primary"
+                color="indigo"
               />
             </v-card-actions>
           </v-card>

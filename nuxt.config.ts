@@ -45,4 +45,9 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
+  runtimeConfig: {
+    public: {
+      walletConnectProjectId: process.env.WALLET_CONNECT_PROJECT_ID,
+    },
+  },
 })

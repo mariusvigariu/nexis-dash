@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
+    "@web3modal/ethers": "^4.0.11",
+    "ethers": "^6.11.1",
     "nuxt": "^3.10.3",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0"

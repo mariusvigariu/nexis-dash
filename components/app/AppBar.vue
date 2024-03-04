@@ -4,25 +4,14 @@ withDefaults(defineProps<{ order?: number | string }>(), {
 })
 
 const urls = useUrls()
-const appVars = useAppVars()
+const router = useRouter()
 </script>
 
 <template>
   <v-app-bar :order="order">
-    <v-tooltip :text="appVars.name" location="bottom">
-      <template #activator="{ props }">
-        <v-btn
-          :to="urls.index"
-          class="mx-3"
-          icon
-          size="small"
-          color="primary"
-          v-bind="props"
-        >
-          <v-icon icon="mdi-alpha-n" size="40" />
-        </v-btn>
-      </template>
-    </v-tooltip>
+    <span style="cursor: pointer;" @click="router.push(urls.index)">
+      <v-img src="/logo.png" width="160" />
+    </span>
 
     <slot />
   </v-app-bar>
