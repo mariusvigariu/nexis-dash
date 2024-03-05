@@ -1,32 +1,42 @@
 import { createWeb3Modal, defaultConfig } from '@web3modal/ethers/vue'
 
+// https://docs.walletconnect.com/web3modal/vue/about
+
 export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig()
   const projectId = config.public.walletConnectProjectId
+  const appVars = useAppVars()
 
-  // 2. Set chains
-  const mainnet = {
-    chainId: 1,
-    name: 'Ethereum',
-    currency: 'ETH',
-    explorerUrl: 'https://etherscan.io',
-    rpcUrl: 'https://cloudflare-eth.com',
+  // const ethereum = {
+  //   chainId: 1,
+  //   name: 'Ethereum',
+  //   currency: 'ETH',
+  //   explorerUrl: 'https://etherscan.io',
+  //   rpcUrl: 'https://cloudflare-eth.com',
+  // }
+
+  const bsc = {
+    chainId: 56,
+    name: 'BNB Smart Chain',
+    currency: 'BNB',
+    explorerUrl: 'https://bscscan.com',
+    rpcUrl: 'https://bsc-dataseed.binance.org',
   }
 
-  // 3. Create modal
+  // create modal
   const metadata = {
-    name: 'My Website',
-    description: 'My Website description',
-    url: 'https://mywebsite.com', // origin must match your domain & subdomain
-    icons: ['https://avatars.mywebsite.com/'],
+    name: appVars.name,
+    description: appVars.description,
+    url: appVars.url,
+    // icons: ['https://avatars.mywebsite.com/'],
   }
 
   const web3modal = createWeb3Modal({
     ethersConfig: defaultConfig({ metadata }),
-    chains: [mainnet],
+    // chains: [bsc, ethereum],
+    chains: [bsc],
     projectId,
-    enableAnalytics: true, // Optional - defaults to your Cloud configuration
   })
 
-  nuxtApp.provide('web3modal', web3modal)
+  nuxtApp.provide('w3m', web3modal)
 })

@@ -2,9 +2,13 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  devServer: {
+    host: process.env.DEV_SERVER_HOST,
+    port: process.env.DEV_SERVER_PORT,
+  },
   app: {
     head: {
-      title: 'Nexis Dashboard',
+      title: 'Nexis Portal',
       meta: [
         {
           name: 'viewport',
