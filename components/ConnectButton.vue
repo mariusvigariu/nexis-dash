@@ -24,10 +24,13 @@ const addressTruncated = computed(() => {
 
 <template>
   <v-btn
-    :text="isConnected ? addressTruncated : 'CONNECT'"
-    color="primary"
     class="text-none"
     :variant="isConnected ? 'text' : 'elevated'"
+    style="background: linear-gradient(90deg, #3ED0F0 0%, #179EFF 24.5%, #0057FF 67%, #0A4BCA 95%);"
+    size="large"
     @click="modal.open()"
-  />
+  >
+    <v-icon icon="mdi-wallet" start />
+    <span v-text="isConnected ? addressTruncated : 'Connect Wallet'" />
+  </v-btn>
 </template>

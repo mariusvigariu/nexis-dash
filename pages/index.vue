@@ -43,19 +43,20 @@ const activeRoadmapItem = computed(() => {
       <v-spacer />
       <connect-button />
     </app-bar>
-    <v-container>
+
+    <v-container class="mt-10">
       <v-row>
         <v-col cols="12" md="3">
           <nzt-overview />
         </v-col>
         <v-col cols="12" md="6">
-          <v-card rounded="0">
+          <v-card>
             <v-card-title class="text-uppercase">
               <v-icon icon="mdi-square-medium" />
               Roadmap
             </v-card-title>
 
-            <v-list>
+            <v-list class="py-0">
               <v-list-item
                 v-for="(item, i) in roadmap"
                 :key="i"
@@ -69,7 +70,7 @@ const activeRoadmapItem = computed(() => {
                   <span
                     :class="{
                       'mr-3': xs,
-                      'text-h1 font-weight-bold mx-12 my-6': !xs,
+                      'text-h1 font-weight-bold mx-12 my-12': !xs,
                     }"
                     v-text="i + 1"
                   />
@@ -79,26 +80,26 @@ const activeRoadmapItem = computed(() => {
           </v-card>
         </v-col>
         <v-col cols="12" md="3">
-          <v-card rounded="0" class="mb-6" height="140">
+          <v-card class="mb-6" height="140">
             <v-card-title class="text-uppercase">
               <v-icon icon="mdi-square-medium" />
               Info
             </v-card-title>
 
-            <v-card-text>
+            <v-card-text class="mt-4">
               {{ activeRoadmapItem?.subtitle }}
             </v-card-text>
           </v-card>
 
-          <v-card rounded="0">
+          <v-card>
             <v-card-title class="text-uppercase">
               <v-icon icon="mdi-square-medium" />
               Your Nexis pass nft
             </v-card-title>
 
-            <v-img src="/nft_pass.png" height="200" class="my-16" />
+            <v-img src="/nft_pass.png" height="220" class="my-12" />
 
-            <v-card-text>
+            <v-card-text style="height: 260px;" class="d-flex flex-column align-center justify-center">
               Your on-chain NZT account.
               <br>
               On-chain verification of your $NZT
@@ -111,7 +112,7 @@ const activeRoadmapItem = computed(() => {
                 size="large"
                 rounded="0"
                 block
-                color="indigo"
+                color="#0f1723"
               />
             </v-card-actions>
           </v-card>
