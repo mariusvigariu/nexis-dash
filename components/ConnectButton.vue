@@ -1,10 +1,13 @@
 <script lang="ts" setup>
+import { useDisplay } from 'vuetify'
+
 import {
   useWeb3Modal,
   useWeb3ModalEvents,
   useWeb3ModalAccount,
 } from '@web3modal/ethers/vue'
 
+const { xs } = useDisplay()
 const events = useWeb3ModalEvents()
 const modal = useWeb3Modal()
 const { address, isConnected } = useWeb3ModalAccount()
@@ -20,6 +23,13 @@ const addressTruncated = computed(() => {
   }
   return a.slice(0, 6) + '...' + a.slice(a.length - 4, a.length)
 })
+
+const connectWallet = computed(() => {
+  if (xs.value) {
+    return 'Connect'
+  }
+  return 'Connect Wallet'
+})
 </script>
 
 <template>
@@ -31,6 +41,6 @@ const addressTruncated = computed(() => {
     @click="modal.open()"
   >
     <v-icon icon="mdi-wallet" start />
-    <span v-text="isConnected ? addressTruncated : 'Connect Wallet'" />
+    <span v-text="isConnected ? addressTruncated : connectWallet" />
   </v-btn>
 </template>
